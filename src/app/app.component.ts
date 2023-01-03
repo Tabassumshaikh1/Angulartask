@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { count } from 'rxjs';
+import { AuthService } from './service/auth.service';
+
 // import {AppiiService} from './service/appii.service'
 // import {AppiiService} from './service/appii.service' 
 
@@ -9,6 +10,11 @@ import { count } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  loggedIn!:any
+  constructor(private auth:AuthService){
+  this.loggedIn=this.auth.isLoggedIn()
+  }
   // constructor(private user:AppiiService){
   //   this.user.getData().subscribe(data=>{
   //     console.warn(data)
